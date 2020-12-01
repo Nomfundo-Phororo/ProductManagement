@@ -1,0 +1,51 @@
+<div class="container col-12 mt-5 md-5 col-md-12">
+  <mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+</mat-form-field>
+
+<table  mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="ShowImage">
+    <th mat-header-cell *matHeaderCellDef> <mat-slide-toggle style="font-family: SimSun-ExtB ;" (click)='toggleImage()'>
+      {{showImage?'Hide':'Show'}} Image</mat-slide-toggle> </th>
+    <td mat-cell *matCellDef="let element " ><img id="pics" *ngIf='showImage'
+      [src]='element.imageUrl'
+       [title]='element.productName | uppercase' (click)='openDialog(element)'
+></td>
+  </ng-container>
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="productName">
+    <th mat-header-cell *matHeaderCellDef> Product Name </th>
+    <td mat-cell *matCellDef="let element " (click)='openDialog(element)' > {{element.productName}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="productCode">
+    <th mat-header-cell *matHeaderCellDef> Product Code</th>
+    <td mat-cell *matCellDef="let element "> {{element.productCode}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef> Product Price</th>
+    <td mat-cell *matCellDef="let element "> {{element.price|currency:'ZAR':'symbol-narrow':'1.2-2' }} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="starRating">
+    <th mat-header-cell *matHeaderCellDef> Product Rating </th>
+    <td mat-cell *matCellDef="let element"> {{element.starRating}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  <!-- Row shown when there is no matching data. -->
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+  </tr>
+</table>
+</div>

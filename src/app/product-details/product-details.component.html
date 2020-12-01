@@ -1,0 +1,33 @@
+
+
+<mat-dialog-content >
+
+  <div class="row">
+    <div class=".col-lg" style="padding-left: 35px;">
+      <img mat-card-image  src="{{data.imageUrl}}" alt="Photo of a Shiba Inu">
+    </div>
+  
+  <div class=".col-md space" >
+    <h1 mat-dialog-title>{{data.productName}}</h1>
+
+    <mat-divider></mat-divider>
+    <h2> {{data.price|currency:'ZAR':'symbol-narrow':'1.2-2' }}</h2>
+    <mat-divider></mat-divider>
+    <h3>Select a Size</h3>
+    <button mat-raised-button class="sizebutton">UK 3</button>
+    <button mat-raised-button class="sizebutton">UK 4</button>
+    <button mat-raised-button class="sizebutton">UK 5</button>
+    <button mat-raised-button class="sizebutton">UK 6</button>
+    <button mat-raised-button class="sizebutton">UK 7</button>
+  </div>
+</div>
+  
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close >relax</button>
+  <button mat-raised-button>Add to Cart <i class='fas fa-shopping-basket' style='font-size:12px'></i></button>
+
+  <button mat-button mat-dialog-close cdkFocusInitial>Add to Wish list</button>
+</mat-dialog-actions>
+
+

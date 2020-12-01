@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-md-12">
+        <ul class="nav justify-content-center ">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Shop</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Women</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Man</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Home</a>
+            </li>
+        </ul>
+
+        <ngb-carousel class="contain rainbow-box">
+            <ng-template ngbSlide>
+                <div class="picsum-img-wrapper">
+                    <img src="assets/images/csuperstar.jpg" alt="Random second slide">
+                </div>
+                <div class="carousel-caption">
+                    <a [routerLink]="['/ProductList']" routerLinkActive="active" class="btn effect01"><span>Start your
+                            shopping</span></a>
+                </div>
+            </ng-template>
+
+            <ng-template ngbSlide>
+                <div class="picsum-img-wrapper">
+                    <img src="assets/images/chuman.jpg" alt="human shoes">
+                </div>
+
+            </ng-template>
+        </ngb-carousel>
+            
+
+
+
+
+
+               
+    </div>
+
+    <div class="col-md-12 col-12" style="width: 100%;">
+
+        <router-outlet></router-outlet>
+
+    </div>
+</div>
